@@ -407,6 +407,47 @@
         .read-more:hover {
             gap: 1rem;
         }
+        /* Contact Us */
+        .contact{
+            background: var(--card-bg);
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem 0;
+            min-height:180px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .row{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .row input::placeholder, 
+        .row textarea::placeholder{
+            color: var(--secondary-color);
+        }
+        .row input, 
+        .row textarea{
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 1rem;
+            color: var(--dark-bg);
+            flex-basis: 90%;
+            border-radius: 8px;
+        }
+        .row textarea{
+            height: 100px;
+            resize: none;
+        }
+        .row .cta-button{
+            width: 45%;
+            margin-left: 0.9rem;
+            text-align: center;
+        }
+        
 
         /* Footer */
         footer {
@@ -526,6 +567,32 @@
     <section id="accueil" class="hero">
         <div class="hero-content">
             <h1>Contact</h1>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="contact">
+            <form>
+                <div class="row">
+                    <input type="text" placeholder="Nom">
+                </div>
+                <div class="row">
+                    <input type="text" placeholder="Prenom">
+                </div>
+                <div class="row">
+                    <input type=" email" placeholder="Email">
+                </div>
+                <div class="row">
+                    <textarea placeholder="Message"></textarea>
+                </div>
+                <div class="row">
+                    <button  class="cta-button" type="submit">Envoyer</button>
+                    <button  class="cta-button" type="reset">Supprimer</button>
+                </div>
+
+            </form>
         </div>
     </section>
 
