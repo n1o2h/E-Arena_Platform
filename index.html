@@ -407,7 +407,19 @@
         .read-more:hover {
             gap: 1rem;
         }
+        /* Contact Us */
+        .contact{
+            background: var(--card-bg);
+            width: 700px;
+            height: 400px;
 
+        }
+
+        .contact form{
+            display: inline-block;
+            
+            
+        }
         /* Footer */
         footer {
             background: var(--card-bg);
@@ -512,11 +524,12 @@
         <nav>
             <div class="logo">E-ARENA</div>
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#tournois">Tournois</a></li>
-                <li><a href="#equipes">Équipes</a></li>
-                <li><a href="#actualites">Actualités</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="tournois.html">Tournois</a></li>
+                <li><a href="equipes.html">Équipes</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -694,6 +707,18 @@
                     <a href="#" class="read-more">Lire la suite →</a>
                 </div>
             </article>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact">
+            <form >
+                <input type="text" placeholder="Nom Complet">
+                <input type=" email" placeholder="Email">
+                <textarea name="" id="" placeholder="Ecrire un message.."></textarea>
+
+            </form>
         </div>
     </section>
 

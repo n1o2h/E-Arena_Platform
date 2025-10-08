@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Arena - Plateforme E-Sport pour tournois, équipes et actualités gaming compétitif">
+    <meta name="keywords" content="esport, gaming, tournois, compétition, équipes">
+    <meta name="author" content="E-Arena">
+    <title>E-Arena | Plateforme E-Sport - Tournois & Compétitions</title>
+    <style>
+        /* Reset et Variables CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00ff88;
+            --secondary-color: #ff0080;
+            --dark-bg: #0a0e27;
+            --card-bg: #151932;
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4b4;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header et Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Section Hero */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            padding: 2rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--gradient-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Section Container */
+        section {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 1rem auto 0;
+        }
+
+        /* Grille de Tournois */
+        .tournaments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .tournament-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .tournament-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .tournament-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .tournament-content {
+            padding: 1.5rem;
+        }
+
+        .tournament-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tournament-meta {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .tournament-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .prize-pool {
+            background: var(--gradient-2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Équipes */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .team-card:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary-color);
+        }
+
+        .team-logo {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .team-rank {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .team-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Actualités */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.2);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 180px;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tournaments-grid,
+            .teams-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">E-ARENA</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#tournois">Tournois</a></li>
+                <li><a href="#equipes">Équipes</a></li>
+                <li><a href="#actualites">Actualités</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue sur E-Arena</h1>
+            <p>La plateforme ultime pour les compétitions E-Sport</p>
+            <a href="#tournois" class="cta-button">Découvrir les Tournois</a>
+        </div>
+    </section>
+
+    <!-- Section Tournois -->
+    <section id="tournois">
+        <h2 class="section-title">Tournois à Venir</h2>
+        <div class="tournaments-grid">
+            <article class="tournament-card">
+                <div class="tournament-image">🎮</div>
+                <div class="tournament-content">
+                    <h3>Championship Series 2025</h3>
+                    <div class="tournament-meta">
+                        <span class="meta-item">📅 15-17 Nov 2025</span>
+                        <span class="meta-item">👥 128 Équipes</span>
+                    </div>
+                    <p>Le tournoi le plus prestigieux de l'année avec les meilleures équipes internationales.</p>
+                    <span class="prize-pool">💰 500 000€</span>
+                </div>
+            </article>
+
+            <article class="tournament-card">
+                <div class="tournament-image">⚔️</div>
+                <div class="tournament-content">
+                    <h3>Battle Royale Masters</h3>
+                    <div class="tournament-meta">
+                        <span class="meta-item">📅 22-24 Nov 2025</span>
+                        <span class="meta-item">👥 64 Équipes</span>
+                    </div>
+                    <p>Affrontements intenses en mode Battle Royale avec les meilleurs joueurs du monde.</p>
+                    <span class="prize-pool">💰 250 000€</span>
+                </div>
+            </article>
+
+            <article class="tournament-card">
+                <div class="tournament-image">🏆</div>
+                <div class="tournament-content">
+                    <h3>Winter Cup 2025</h3>
+                    <div class="tournament-meta">
+                        <span class="meta-item">📅 05-07 Déc 2025</span>
+                        <span class="meta-item">👥 32 Équipes</span>
+                    </div>
+                    <p>Tournoi de fin d'année regroupant les champions de chaque région.</p>
+                    <span class="prize-pool">💰 150 000€</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section Équipes -->
+    <section id="equipes">
+        <h2 class="section-title">Équipes Élite</h2>
+        <div class="teams-grid">
+            <article class="team-card">
+                <div class="team-logo">TF</div>
+                <h3 class="team-name">Team Fury</h3>
+                <p class="team-rank">🥇 Classement N°1</p>
+                <div class="team-stats">
+                    <div class="stat">
+                        <span class="stat-value">85%</span>
+                        <span class="stat-label">Victoires</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">42</span>
+                        <span class="stat-label">Matchs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Titres</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-logo">VX</div>
+                <h3 class="team-name">Vortex Gaming</h3>
+                <p class="team-rank">🥈 Classement N°2</p>
+                <div class="team-stats">
+                    <div class="stat">
+                        <span class="stat-value">78%</span>
+                        <span class="stat-label">Victoires</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">38</span>
+                        <span class="stat-label">Matchs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">8</span>
+                        <span class="stat-label">Titres</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-logo">NX</div>
+                <h3 class="team-name">Nexus Elite</h3>
+                <p class="team-rank">🥉 Classement N°3</p>
+                <div class="team-stats">
+                    <div class="stat">
+                        <span class="stat-value">72%</span>
+                        <span class="stat-label">Victoires</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">35</span>
+                        <span class="stat-label">Matchs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">6</span>
+                        <span class="stat-label">Titres</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-logo">PX</div>
+                <h3 class="team-name">Phoenix Squad</h3>
+                <p class="team-rank">Classement N°4</p>
+                <div class="team-stats">
+                    <div class="stat">
+                        <span class="stat-value">68%</span>
+                        <span class="stat-label">Victoires</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">32</span>
+                        <span class="stat-label">Matchs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">4</span>
+                        <span class="stat-label">Titres</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section Actualités -->
+    <section id="actualites">
+        <h2 class="section-title">Dernières Actualités</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-image">📰</div>
+                <div class="news-content">
+                    <time class="news-date">10 Octobre 2025</time>
+                    <h3>Team Fury remporte le Grand Slam</h3>
+                    <p>Une performance exceptionnelle lors de la finale qui restera dans les annales de l'E-Sport.</p>
+                    <a href="#" class="read-more">Lire la suite →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">🎯</div>
+                <div class="news-content">
+                    <time class="news-date">08 Octobre 2025</time>
+                    <h3>Nouveaux records établis</h3>
+                    <p>Les statistiques du dernier tournoi dépassent toutes les attentes avec plus de 2 millions de spectateurs.</p>
+                    <a href="#" class="read-more">Lire la suite →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">⭐</div>
+                <div class="news-content">
+                    <time class="news-date">05 Octobre 2025</time>
+                    <h3>Recrutement de joueurs pros</h3>
+                    <p>E-Arena lance son programme de détection de talents pour former la prochaine génération de champions.</p>
+                    <a href="#" class="read-more">Lire la suite →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>E-Arena</h4>
+                <p>La plateforme de référence pour l'E-Sport compétitif. Rejoignez-nous pour vivre l'expérience ultime du gaming professionnel.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#tournois">Tournois</a></li>
+                    <li><a href="#equipes">Équipes</a></li>
+                    <li><a href="#actualites">Actualités</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Règlement</a></li>
+                    <li><a href="#">Nous contacter</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-link" aria-label="Discord">💬</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 E-Arena. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

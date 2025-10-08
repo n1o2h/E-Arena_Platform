@@ -274,6 +274,140 @@
             margin-top: 1rem;
         }
 
+        /* Équipes */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .team-card:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary-color);
+        }
+
+        .team-logo {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .team-rank {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .team-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Actualités */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.2);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 180px;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
         /* Footer */
         footer {
             background: var(--card-bg);
@@ -391,52 +525,41 @@
     <!-- Hero Section -->
     <section id="accueil" class="hero">
         <div class="hero-content">
-            <h1>Tournois</h1>
-            
-            <a href="tournois.html#tournois" class="cta-button">Découvrir les Tournois</a>
+            <h1>Actualités</h1>
         </div>
     </section>
-
-    <!-- Section Tournois -->
-    <section id="tournois">
-        <h2 class="section-title">Tournois à Venir</h2>
-        <div class="tournaments-grid">
-            <article class="tournament-card">
-                <div class="tournament-image">🎮</div>
-                <div class="tournament-content">
-                    <h3>Championship Series 2025</h3>
-                    <div class="tournament-meta">
-                        <span class="meta-item">📅 15-17 Nov 2025</span>
-                        <span class="meta-item">👥 128 Équipes</span>
-                    </div>
-                    <p>Le tournoi le plus prestigieux de l'année avec les meilleures équipes internationales.</p>
-                    <span class="prize-pool">💰 500 000€</span>
+    
+    <!-- Section Actualités -->
+    <section id="actualites">
+        <h2 class="section-title">Dernières Actualités</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-image">📰</div>
+                <div class="news-content">
+                    <time class="news-date">10 Octobre 2025</time>
+                    <h3>Team Fury remporte le Grand Slam</h3>
+                    <p>Une performance exceptionnelle lors de la finale qui restera dans les annales de l'E-Sport.</p>
+                    <a href="#" class="read-more">Lire la suite →</a>
                 </div>
             </article>
 
-            <article class="tournament-card">
-                <div class="tournament-image">⚔️</div>
-                <div class="tournament-content">
-                    <h3>Battle Royale Masters</h3>
-                    <div class="tournament-meta">
-                        <span class="meta-item">📅 22-24 Nov 2025</span>
-                        <span class="meta-item">👥 64 Équipes</span>
-                    </div>
-                    <p>Affrontements intenses en mode Battle Royale avec les meilleurs joueurs du monde.</p>
-                    <span class="prize-pool">💰 250 000€</span>
+            <article class="news-card">
+                <div class="news-image">🎯</div>
+                <div class="news-content">
+                    <time class="news-date">08 Octobre 2025</time>
+                    <h3>Nouveaux records établis</h3>
+                    <p>Les statistiques du dernier tournoi dépassent toutes les attentes avec plus de 2 millions de spectateurs.</p>
+                    <a href="#" class="read-more">Lire la suite →</a>
                 </div>
             </article>
 
-            <article class="tournament-card">
-                <div class="tournament-image">🏆</div>
-                <div class="tournament-content">
-                    <h3>Winter Cup 2025</h3>
-                    <div class="tournament-meta">
-                        <span class="meta-item">📅 05-07 Déc 2025</span>
-                        <span class="meta-item">👥 32 Équipes</span>
-                    </div>
-                    <p>Tournoi de fin d'année regroupant les champions de chaque région.</p>
-                    <span class="prize-pool">💰 150 000€</span>
+            <article class="news-card">
+                <div class="news-image">⭐</div>
+                <div class="news-content">
+                    <time class="news-date">05 Octobre 2025</time>
+                    <h3>Recrutement de joueurs pros</h3>
+                    <p>E-Arena lance son programme de détection de talents pour former la prochaine génération de champions.</p>
+                    <a href="#" class="read-more">Lire la suite →</a>
                 </div>
             </article>
         </div>
@@ -444,11 +567,6 @@
 
     <!-- Footer -->
     <footer id="contact">
-        <div id="contact-form">
-            <form>
-
-            </form>
-        </div>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>E-Arena</h4>
