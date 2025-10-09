@@ -232,12 +232,11 @@
             font-size: 1.1rem;
             transition: var(--transition);
             border: none;
-            cursor: pointer;
-            
+            cursor: pointer; 
         }
 
         .cta-button:hover {
-            
+
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
