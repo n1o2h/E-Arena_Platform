@@ -202,7 +202,23 @@ section {
     font-size: 3rem;
     color: white;
 }
-.tournament-content {
+    .about-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        .about-image img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            /* aspect-ratio: 3/3; */
+        }
+.tournament-content, .about-content {
     padding: 1.5rem;
 }
 .tournament-card h3 {
