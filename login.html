@@ -15,14 +15,16 @@
     <!-- Hero Section -->
     <section class="login-container">
         <div >
-            <h1>Sign In</h1>
+            <h1>Log In</h1>
             <form >
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Mot de Pass">
-                <a href="index.html" class="cta-button">Log In</a>
-                <a href="#">Oublier votre mot de pass</a>
+                <input type="text" placeholder="Email" required>
+                <input type="password" placeholder="Mot de Pass" required>
+                <button class="cta-button" type="submit">
+                    <a  class="log" href="index.html" >Log In</a>
+                </button>
+                <a class="textlog" href="#">Oublier votre mot de pass</a>
             </form>
-            <p>Tu n'a pas de compte?  <a href="logout.html">Log Out</a></p>
+            <p >Tu n'a pas de compte?  <a   class="textlog" href="logout.html">Log Out</a></p>
         </div>
     </section>
 </body>
