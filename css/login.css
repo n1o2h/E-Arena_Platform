@@ -154,10 +154,21 @@
             color: var(--text-secondary);
             text-decoration: none;
         }
-        .log{
+        a{
+            
+            color: var(--primary-color);
+            text-align: center;
+            transition: a 0.4s ease-in-out;
+        }
+        a:hover{
+            color: var(--text-secondary);
+            text-decoration: none;
+            
+        }
+        /* .log{
             text-decoration: none;
             color:white;
-        }
+        } */
         /* Section Hero */
         .hero {
             /* margin-top: 80px; */

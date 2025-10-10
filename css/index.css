@@ -365,6 +365,12 @@ section {
 .read-more:hover {
     gap: 1rem;
 }
+
+/* inscriptions */
+        .row.checkbox{
+            justify-content: space-evenly;
+            padding:5px 70px;
+        }
 /* Contact Us */
 .contact{
     background: var(--card-bg);
