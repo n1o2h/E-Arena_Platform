@@ -1,3 +1,5 @@
+<h1>E-ARENA WZB SITE</h1>
+<br>
 ### Découpage d'une Page Web en Plusieurs Pages
 
 ### La structure multipage
@@ -7,3 +9,4 @@
 ### L'ajout de la page log in et log out dans le site web
 ### validation des fichers html et css sur W3C
 ### La verifivcation de  la performance
+
