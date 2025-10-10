@@ -251,15 +251,6 @@
             margin-bottom: 1rem;
         }
 
-        .prize-pool {
-            background: var(--gradient-2);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            display: inline-block;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-
         .read-more {
             color: var(--secondary-color);
             text-decoration: none;
@@ -334,7 +325,7 @@
         .footer-section h4 {
             color: var(--primary-color);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            /* font-size: 1.2rem; */
         }
 
         .footer-section ul {
